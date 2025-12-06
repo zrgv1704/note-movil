@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import AddNoteModal from '../../components/AddNoteModal'
+import NotesList from '../../components/NotesList'
 
 const NoteScreen = () => {
 
@@ -28,6 +30,7 @@ const NoteScreen = () => {
         <View style= {styles.container}>
 
             {/* FLATLIST */}
+            <NotesList notes={notes}/>
 
             <TouchableOpacity
                 style={styles.addButton}
@@ -37,6 +40,13 @@ const NoteScreen = () => {
             </TouchableOpacity>
 
             {/* MODAL */}
+            <AddNoteModal
+                modalVisible={modalVisible}
+                setModalVisible={setModalVisible}
+                newNote={newNote}
+                setNewNote={setNewNote}
+                addNewNote={addNewNote}
+            />
 
         </View>
     )
